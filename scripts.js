@@ -19,21 +19,23 @@ const compare = (yourString, dictionary) => {
   yourString = yourString.replace('.', '[a-z]{1}')
   yourString = yourString.replace('*', '[a-z]*')
   let regex = new RegExp(yourString)
-  console.log(regex);
-  let output = dictionary.match(regex);
-  return output;
+  console.log('REG = ', regex);
+  console.log('dict = ',dictionary)
+  let output = dictionary.match(regex)
+  if (dictionary === output[0]) {
+    return [output[0], true];
+  } else {return [output[0], false]}
 }
 
 let testString1 = 'ra.'
-let testComp1 = 'ray'
+let testComp1 = 'raymond'
 let testString2 = '.*at'
 let testComp2 = 'chat'
 
-compare(testString1, testComp1)
-compare(testString2, testComp2)
+console.log(compare(testString1, testComp1))
+console.log(compare(testString2, testComp2))
 
 $(document).ready(function() {
+  
   $('#output-section-1').text(1);
-  $('#output-section-2').text(2);
-  $('#output-section-3').text(3);
 });

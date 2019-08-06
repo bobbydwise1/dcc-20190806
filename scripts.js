@@ -15,7 +15,22 @@ For example, given the regular expression "ra." and the string "ray", your funct
 Given the regular expression ".*at" and the string "chat", your function should return true. The same regular expression on the string "chats" should return false.
 */
 
+const compare = (yourString, dictionary) => {
+  yourString = yourString.replace('.', '[a-z]{1}')
+  yourString = yourString.replace('*', '[a-z]*')
+  let regex = new RegExp(yourString)
+  console.log(regex);
+  let output = dictionary.match(regex);
+  return output;
+}
 
+let testString1 = 'ra.'
+let testComp1 = 'ray'
+let testString2 = '.*at'
+let testComp2 = 'chat'
+
+compare(testString1, testComp1)
+compare(testString2, testComp2)
 
 $(document).ready(function() {
   $('#output-section-1').text(1);

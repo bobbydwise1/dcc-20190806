@@ -36,6 +36,12 @@ console.log(compare(testString1, testComp1))
 console.log(compare(testString2, testComp2))
 
 $(document).ready(function() {
-  
-  $('#output-section-1').text(1);
+  $('#form1').submit(function(event) {
+    event.preventDefault();
+    let input1 = $('#input1').val();
+    let input2 = $('#input2').val();
+    let output = compare(input1,input2);
+    $('#output-section-1').text(output[1]);
+  })
+
 });
